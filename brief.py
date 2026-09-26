@@ -44,8 +44,8 @@ employes_techcorp = donnees_entreprises["TechCorp"]
 salaires_techcorp = []
 
 # 2. Calculer le salaire 
-for e in employes_techcorp:
-    salaire = salaire_mensuel(e["contract_hours"], e["weekly_hours_worked"], e["hourly_rate"])
+for donnee in employes_techcorp:
+    salaire = salaire_mensuel(donnee["contract_hours"], donnee["weekly_hours_worked"], donnee["hourly_rate"])
     salaires_techcorp.append(salaire)
 
 # 3. Calculer et afficher la moyenne
@@ -75,8 +75,8 @@ employes_DesignWorks = donnees_entreprises["DesignWorks"]
 salaires_DesignWorks = []
 
 # 2. Calcul du salaire
-for e in employes_DesignWorks:
-    salaire = salaire_mensuel(e["contract_hours"], e["weekly_hours_worked"], e["hourly_rate"])
+for donneeB in employes_DesignWorks:
+    salaire = salaire_mensuel(donneeB["contract_hours"], donneeB["weekly_hours_worked"], donneeB["hourly_rate"])
     salaires_DesignWorks.append(salaire)
 
 # 3. Calculer et afficher la moyenne
@@ -110,8 +110,8 @@ employes_ProjectLead = donnees_entreprises["ProjectLead"]
 salaires_ProjectLead = []
 
 # 2. Calcul du salaire
-for e in employes_ProjectLead:
-    salaire = salaire_mensuel(e["contract_hours"], e["weekly_hours_worked"], e["hourly_rate"])
+for donneeC in employes_ProjectLead:
+    salaire = salaire_mensuel(donneeC["contract_hours"], donneeC["weekly_hours_worked"], donneeC["hourly_rate"])
     salaires_ProjectLead.append(salaire)
 
 # 3. Calculer et afficher la moyenne
@@ -138,24 +138,22 @@ print(f"le salaire maximum est de : {salaire_maxi_ProjectLead} €")
     
 #=============================Stat salariales: salaire moyen, +elevé, +bas de l'entreprise globale======================
 
-#===Salaire moyen de l'entreprise:
+# Calcul de la moyenne globale (somme de tous les salaires divisée par le nombre total d'employés)
 
-# 1. Récupérer donnees entreprise:
+salaires_entreprise_globale = (salaires_techcorp + salaires_DesignWorks + salaires_ProjectLead)
 
-salaire_moyen_global = ["TechCorp" , "Designworks" , "ProjectLead"]
-salaire_moyen_entreprise = []
 
-# 2. Calculer le salaire 
-for e in salaire_moyen_global:
-    salaire = salaire_mensuel(e["contract_hours"], e["weekly_hours_worked"], e["hourly_rate"])
-    salaire_moyen_entreprise.append(salaire)
+salaire_moyen_global = sum(salaires_entreprise_globale) / len(salaires_entreprise_globale)
+salaire_moyen_global_arrondi = round(salaire_moyen_global, 2)
 
-# 3. Calculer et afficher la moyenne
-# (moyenne de tous les salaires divisée par le nombre d'employés)
-salaire_moyen_entreprise = sum(salaire) / len(salaire)
-salaire_moyen_arrondi = round(salaire_moyen_entreprise, 2)
+#Recherche du salaire minimum et maximum global parmi toutes les filiales
+salaire_mini_global = min(salaires_entreprise_globale)
+salaire_maxi_global = max(salaires_entreprise_globale)
 
-print(f"Le salaire moyen au sein de l'entreprise est de : {salaire_moyen_arrondi:} €")
+
+print(f"Le salaire moyen au sein de l'entreprise est de : {salaire_moyen_global_arrondi} €")
+print(f"Le salaire minimum global est de : {salaire_mini_global} €")
+print(f"Le salaire maximum global est de : {salaire_maxi_global} €")
 
 
 
@@ -166,7 +164,8 @@ print(f"Le salaire moyen au sein de l'entreprise est de : {salaire_moyen_arrondi
 
 
 
-#===Salaire minimum et maximum de l'entreprise: 
+
+
 
 
 
