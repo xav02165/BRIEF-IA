@@ -18,7 +18,7 @@ def salaire_mensuel(contract_hours, weekly_hours_worked, hourly_rate):
 def afficher_stats_entreprise(nom_entreprise, liste_employes):
     salaires = []
     
-    # Calcul du salaire de chaque employé de la liste
+    # Calcul du salaire de chaque employé 
     for e in liste_employes:
         s = salaire_mensuel(e["contract_hours"], e["weekly_hours_worked"], e["hourly_rate"])
         salaires.append(s)
@@ -33,5 +33,5 @@ def afficher_stats_entreprise(nom_entreprise, liste_employes):
     print(f"le salaire minimum est de : {salaire_mini} €")
     print(f"le salaire maximum est de : {salaire_maxi} €")
 
-    # On retourne la liste pour pouvoir l'utiliser dans le calcul global ensuite
+    
     return salaires
