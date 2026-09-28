@@ -12,3 +12,26 @@ def salaire_mensuel(contract_hours, weekly_hours_worked, hourly_rate):
         salaire_mensuel_total = (weekly_hours_worked * hourly_rate) * 4
         
     return salaire_mensuel_total
+
+
+
+def afficher_stats_entreprise(nom_entreprise, liste_employes):
+    salaires = []
+    
+    # Calcul du salaire de chaque employé de la liste
+    for e in liste_employes:
+        s = salaire_mensuel(e["contract_hours"], e["weekly_hours_worked"], e["hourly_rate"])
+        salaires.append(s)
+
+    # Calculs des statistiques
+    salaire_moyen_arrondi = round(sum(salaires) / len(salaires), 2)
+    salaire_mini = min(salaires)
+    salaire_maxi = max(salaires)
+
+    # Affichage
+    print(f"Le salaire moyen au sein de {nom_entreprise} est de : {salaire_moyen_arrondi} €")
+    print(f"le salaire minimum est de : {salaire_mini} €")
+    print(f"le salaire maximum est de : {salaire_maxi} €")
+
+    # On retourne la liste pour pouvoir l'utiliser dans le calcul global ensuite
+    return salaires
