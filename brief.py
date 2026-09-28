@@ -9,11 +9,11 @@ from fonction import salaire_mensuel, afficher_stats_entreprise
 with open('employes_data.json', 'r', encoding='utf-8') as fichier:
     donnees_entreprises = json.load(fichier)
 
-# Ouverture / Création du fichier CSV des employés
+# Ouverture et Création du fichier CSV des employés
 with open('employes_resultats.csv', 'w', newline='', encoding='utf-8') as fichier_csv:
     ecripteur = csv.writer(fichier_csv)
     
-    # En-tête des colonnes
+    # Colonnes
     ecripteur.writerow(["Entreprise", "Nom", "Poste", "Salaire (€)"])
 
     # Double boucle
@@ -27,7 +27,7 @@ with open('employes_resultats.csv', 'w', newline='', encoding='utf-8') as fichie
             # Écriture de la ligne dans le CSV
             ecripteur.writerow([entreprise, employe["name"], employe["job"], salaire])
             
-            # Affichage console
+            # Affichage 
             print(f"Employé : {employe['name']} ({employe['job']}) -> Salaire : {salaire} €")
 
 
@@ -68,11 +68,11 @@ moyen_projectlead = round(sum(salaires_ProjectLead) / len(salaires_ProjectLead),
 mini_projectlead = min(salaires_ProjectLead)
 maxi_projectlead = max(salaires_ProjectLead)
 
-# Écriture du fichier CSV de statistiques
+# Écriture du fichier 
 with open('statistiques.csv', 'w', newline='', encoding='utf-8') as fichier_stats_csv:
     ecripteur_stats = csv.writer(fichier_stats_csv)
     
-    # En-tête du tableau CSV
+    # Tableau CSV
     ecripteur_stats.writerow(["Entité", "Salaire Moyen (€)", "Salaire Minimum (€)", "Salaire Maximum (€)"])
     
     # Écriture des lignes de chaque filiale
