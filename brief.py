@@ -1,21 +1,9 @@
 
 #========================================Calcul salaire chaque employés================================
 
-def salaire_mensuel(contract_hours, weekly_hours_worked, hourly_rate):
-    # Des heures supplémentaires ont été effectuées
-    if weekly_hours_worked > contract_hours:
-        salaire_base_semaine = contract_hours * hourly_rate
-        heures_sup_semaine = (weekly_hours_worked - contract_hours) * hourly_rate * 1.5
-        salaire_mensuel_total = (salaire_base_semaine + heures_sup_semaine) * 4
+import json #lie brief.py au fichier json
+from fonction import salaire_mensuel #lie fonction.py pour recuperer ma fonction
 
-    # Pas d'heures supplémentaires (heures normales ou moins)
-    else:
-        salaire_mensuel_total = (weekly_hours_worked * hourly_rate) * 4
-        
-    return salaire_mensuel_total
-
-
-import json
 
      #Chargement du fichier JSON
 with open('employes_data.json', 'r', encoding='utf-8') as fichier:
