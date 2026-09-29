@@ -1,3 +1,5 @@
+#BONUS 2 NON FAIT, AIDE AVEC L'IA POUR COMPRENDRE LE FONCTIONNEMENT
+
 import pandas as pd
 import plotly.express as px
 import streamlit as st
