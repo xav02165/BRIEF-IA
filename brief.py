@@ -83,7 +83,7 @@ with open('statistiques.csv', 'w', newline='', encoding='utf-8') as fichier_stat
     # Écriture de la ligne globale
     ecripteur_stats.writerow(["Entreprise Globale", salaire_moyen_global_arrondi, salaire_mini_global, salaire_maxi_global])
 
-print("\nLe fichier 'statistiques.csv' a été créé avec succès !")
+print("\nLe fichier 'statistiques.csv' a été créé")
 
 
 
