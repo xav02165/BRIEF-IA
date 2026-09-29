@@ -18,7 +18,7 @@ try:
     df_stats = pd.read_csv("statistiques.csv")
 except FileNotFoundError:
     st.error(
-        "⚠️ Fichiers CSV introuvables. Exécute d'abord ton script 'brief.py'."
+        "⚠️ Fichiers CSV introuvables. Exécuter d'abord le script 'brief.py'."
     )
     st.stop()
 
@@ -119,4 +119,8 @@ with col_emp_graph:
         marker_color="#4183c4", textposition="outside", cliponaxis=False
     )
     st.plotly_chart(fig_metier, use_container_width=True)
+
+
+
+#Ligne de commande a conserver:
    #     python -m streamlit run app.py
